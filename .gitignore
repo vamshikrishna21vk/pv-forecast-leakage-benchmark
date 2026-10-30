@@ -1,0 +1,11 @@
+# Kaggle dataset: download it yourself (see README.md); it is not redistributed here.
+data/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Intermediate outputs of the report-only analyses (copies live in results/robustness/)
+analysis/out/
