@@ -1,0 +1,22 @@
+quantity,value
+MATCHED R2 leaked all-hours (A),0.9364671395874791
+MATCHED R2 leaked daylight (B),0.8401267867709954
+MATCHED R2 gap A-D,0.2637433762699454
+"MATCHED leakage component (Shapley avg of B-D, A-C)",0.11625415069686995
+"MATCHED zero-inflation component (Shapley avg of A-B, C-D)",0.14748922557307542
+"MATCHED RMSE ratio causal/leaked, daylight",1.430768547207219
+"MATCHED MAE ratio causal/leaked, daylight",2.003930250176488
+"MATCHED RMSE ratio causal/leaked, all hours",1.4229369884582577
+R2 leaked all-hours (A),0.9214175458782904
+R2 leaked daylight (B),0.803999587821409
+R2 causal all-hours (C),0.8713618616472009
+R2 causal daylight (D),0.6727237633175337
+R2 gap A-D,0.2486937825607567
+"leakage component (Shapley avg of B-D, A-C)",0.09066575436748242
+"zero-inflation component (Shapley avg of A-B, C-D)",0.15802802819327427
+"RMSE ratio causal/leaked, daylight (common set)",1.292197046241319
+"MAE ratio causal/leaked, daylight (common set)",1.5705577774043498
+RMSE ratio causal-daylight / leaked-all-hours (old definition),1.792179109424296
+"RMSE ratio causal/leaked (leaked RF with forecaster settings), daylight",1.29131350045148
+"MAE ratio causal/leaked (leaked RF with forecaster settings), daylight",1.5510592970819717
+"RMSE ratio causal/leaked round-2 version, daylight",1.5567655260471405

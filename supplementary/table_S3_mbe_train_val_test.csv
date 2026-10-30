@@ -1,0 +1,9 @@
+plant,model,MBE_train_in_sample,MBE_validation_last25pct_of_train,MBE_test
+1,Persistence,-11.1,30.2,61.7
+1,Linear Regression,19.9,169.7,341.1
+1,XGBoost,-0.6,180.6,338.0
+1,Random Forest (full),-3.7,174.1,382.2
+2,Persistence,-25.5,-45.1,12.2
+2,Linear Regression,5.0,-44.8,27.9
+2,XGBoost,10.1,10.1,97.0
+2,Random Forest (full),-2.8,79.9,224.7

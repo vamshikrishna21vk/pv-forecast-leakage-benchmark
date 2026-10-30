@@ -1,0 +1,150 @@
+===== PLANT 1
+                                                  0       1
+fold                                             F1      F2
+n_train                                         411     699
+n_val                                           103     175
+n_test                                          288     287
+n_days                                            6       6
+RMSE skill Linear Regression vs Persistence   0.119   0.138
+MAE skill Linear Regression vs Persistence    0.131  0.1276
+RMSE skill Linear Regression vs CLIPER       0.0204  0.0291
+MAE skill Linear Regression vs CLIPER        0.0535  0.0239
+RMSE skill XGBoost vs Persistence            0.1558   0.136
+MAE skill XGBoost vs Persistence             0.1563  0.1306
+RMSE skill XGBoost vs CLIPER                 0.0613   0.027
+MAE skill XGBoost vs CLIPER                  0.0811  0.0272
+RMSE skill Random Forest vs Persistence      0.1442  0.1298
+MAE skill Random Forest vs Persistence       0.1787  0.1384
+RMSE skill Random Forest vs CLIPER           0.0484  0.0199
+MAE skill Random Forest vs CLIPER            0.1054   0.036
+p SE RF vs CLIPER                            0.0026  0.3883
+p AE RF vs CLIPER                               0.0  0.2535
+p SE RF vs Linear Regression                 0.1242  0.6752
+p AE RF vs Linear Regression                 0.0227  0.6354
+N                                               575.0000
+test_days                                        12.0000
+one_day_lag                                      48.0000
+RMSE Persistence                               3895.9915
+MAE Persistence                                2703.8606
+RMSE CLIPER                                    3479.6590
+MAE CLIPER                                     2448.3953
+RMSE Linear Regression                         3392.3359
+MAE Linear Regression                          2354.3509
+RMSE XGBoost                                   3331.0552
+MAE XGBoost                                    2317.1672
+RMSE Random Forest                             3364.9749
+MAE Random Forest                              2277.0296
+RMSE skill Linear Regression vs Persistence       0.1293
+MAE skill Linear Regression vs Persistence        0.1293
+RMSE skill Linear Regression vs CLIPER            0.0251
+MAE skill Linear Regression vs CLIPER             0.0384
+RMSE skill XGBoost vs Persistence                 0.1450
+MAE skill XGBoost vs Persistence                  0.1430
+RMSE skill XGBoost vs CLIPER                      0.0427
+MAE skill XGBoost vs CLIPER                       0.0536
+RMSE skill Random Forest vs Persistence           0.1363
+MAE skill Random Forest vs Persistence            0.1579
+RMSE skill Random Forest vs CLIPER                0.0330
+MAE skill Random Forest vs CLIPER                 0.0700
+                  ref              model loss    p_NW5  p_NWday  p_NW5_Holm6  p_NWday_Holm6
+0         Persistence  Linear Regression   SE  0.00000  0.00000      0.00000        0.00000
+1         Persistence  Linear Regression   AE  0.00000  0.00000      0.00000        0.00000
+2         Persistence            XGBoost   SE  0.00000  0.00000      0.00000        0.00000
+3         Persistence            XGBoost   AE  0.00000  0.00000      0.00000        0.00000
+4         Persistence      Random Forest   SE  0.00000  0.00000      0.00000        0.00000
+5         Persistence      Random Forest   AE  0.00000  0.00000      0.00000        0.00000
+6              CLIPER  Linear Regression   SE  0.15039  0.14350      0.16833        0.17026
+7              CLIPER  Linear Regression   AE  0.08417  0.08513      0.16833        0.17026
+8              CLIPER            XGBoost   SE  0.00639  0.02299      0.03193        0.09197
+9              CLIPER            XGBoost   AE  0.00877  0.01795      0.03508        0.08973
+10             CLIPER      Random Forest   SE  0.02307  0.04850      0.06920        0.14551
+11             CLIPER      Random Forest   AE  0.00071  0.00209      0.00428        0.01256
+12  Linear Regression      Random Forest   SE  0.59109  0.49782          NaN            NaN
+13  Linear Regression      Random Forest   AE  0.06608  0.04723          NaN            NaN
+                 ref              model quantity      point      ci_lo      ci_hi  excludes_zero
+0             CLIPER      Random Forest     dMSE  -784970.0 -1602763.0   -71542.0           True
+1             CLIPER      Random Forest     dMAE     -171.0     -282.0      -66.0           True
+2  Linear Regression      Random Forest     dMSE  -184887.0  -655736.0   295272.0          False
+3  Linear Regression      Random Forest     dMAE      -77.0     -145.0       -8.0           True
+4        Persistence  Linear Regression     dMSE -3670807.0 -4741634.0 -2646367.0           True
+5        Persistence  Linear Regression     dMAE     -350.0     -438.0     -258.0           True
+6        Persistence            XGBoost     dMSE -4082821.0 -5164393.0 -3108146.0           True
+7        Persistence            XGBoost     dMAE     -387.0     -472.0     -302.0           True
+8        Persistence      Random Forest     dMSE -3855694.0 -4695272.0 -3079136.0           True
+9        Persistence      Random Forest     dMAE     -427.0     -523.0     -327.0           True
+leakage checks: 10 / 10 pass
+===== PLANT 2
+                                                  0       1
+fold                                             F1      F2
+n_train                                         483     770
+n_val                                           121     193
+n_test                                          287     283
+n_days                                            6       6
+RMSE skill Linear Regression vs Persistence  0.1089  0.0208
+MAE skill Linear Regression vs Persistence   0.1903  0.0469
+RMSE skill Linear Regression vs CLIPER       0.0344 -0.0508
+MAE skill Linear Regression vs CLIPER        0.1015 -0.0009
+RMSE skill XGBoost vs Persistence             0.097  0.0665
+MAE skill XGBoost vs Persistence             0.1983   0.084
+RMSE skill XGBoost vs CLIPER                 0.0215 -0.0017
+MAE skill XGBoost vs CLIPER                  0.1104  0.0381
+RMSE skill Random Forest vs Persistence      0.0635  0.0688
+MAE skill Random Forest vs Persistence       0.1474  0.1028
+RMSE skill Random Forest vs CLIPER          -0.0149  0.0008
+MAE skill Random Forest vs CLIPER            0.0539  0.0578
+p SE RF vs CLIPER                            0.7321  0.9736
+p AE RF vs CLIPER                             0.358  0.0452
+p SE RF vs Linear Regression                  0.356  0.2084
+p AE RF vs Linear Regression                 0.3482    0.08
+N                                               570.0000
+test_days                                        12.0000
+one_day_lag                                      48.0000
+RMSE Persistence                               2818.3469
+MAE Persistence                                1826.8603
+RMSE CLIPER                                    2618.0804
+MAE CLIPER                                     1703.4550
+RMSE Linear Regression                         2681.1114
+MAE Linear Regression                          1639.5979
+RMSE XGBoost                                   2603.0620
+MAE XGBoost                                    1592.3240
+RMSE Random Forest                             2629.3022
+MAE Random Forest                              1607.4937
+RMSE skill Linear Regression vs Persistence       0.0487
+MAE skill Linear Regression vs Persistence        0.1025
+RMSE skill Linear Regression vs CLIPER           -0.0241
+MAE skill Linear Regression vs CLIPER             0.0375
+RMSE skill XGBoost vs Persistence                 0.0764
+MAE skill XGBoost vs Persistence                  0.1284
+RMSE skill XGBoost vs CLIPER                      0.0057
+MAE skill XGBoost vs CLIPER                       0.0652
+RMSE skill Random Forest vs Persistence           0.0671
+MAE skill Random Forest vs Persistence            0.1201
+RMSE skill Random Forest vs CLIPER               -0.0043
+MAE skill Random Forest vs CLIPER                 0.0563
+                  ref              model loss    p_NW5  p_NWday  p_NW5_Holm6  p_NWday_Holm6
+0         Persistence  Linear Regression   SE  0.04064  0.09270      0.04064        0.09270
+1         Persistence  Linear Regression   AE  0.00115  0.00277      0.00461        0.01108
+2         Persistence            XGBoost   SE  0.00748  0.00436      0.02089        0.01307
+3         Persistence            XGBoost   AE  0.00008  0.00006      0.00051        0.00028
+4         Persistence      Random Forest   SE  0.00696  0.00563      0.02089        0.01307
+5         Persistence      Random Forest   AE  0.00015  0.00002      0.00076        0.00012
+6              CLIPER  Linear Regression   SE  0.34644  0.34826      1.00000        1.00000
+7              CLIPER  Linear Regression   AE  0.11984  0.07853      0.47936        0.37543
+8              CLIPER            XGBoost   SE  0.80350  0.75014      1.00000        1.00000
+9              CLIPER            XGBoost   AE  0.01470  0.02430      0.08820        0.14577
+10             CLIPER      Random Forest   SE  0.84091  0.80759      1.00000        1.00000
+11             CLIPER      Random Forest   AE  0.04770  0.07509      0.23848        0.37543
+12  Linear Regression      Random Forest   SE  0.54930  0.60359          NaN            NaN
+13  Linear Regression      Random Forest   AE  0.51227  0.53771          NaN            NaN
+                 ref              model quantity      point      ci_lo     ci_hi  excludes_zero
+0             CLIPER      Random Forest     dMSE    58885.0  -415490.0  455206.0          False
+1             CLIPER      Random Forest     dMAE      -96.0     -205.0       9.0          False
+2  Linear Regression      Random Forest     dMSE  -275128.0 -1368117.0  610376.0          False
+3  Linear Regression      Random Forest     dMAE      -32.0     -140.0      65.0          False
+4        Persistence  Linear Regression     dMSE  -754721.0 -1481242.0  165219.0          False
+5        Persistence  Linear Regression     dMAE     -187.0     -278.0     -43.0           True
+6        Persistence            XGBoost     dMSE -1167148.0 -2070617.0 -386330.0           True
+7        Persistence            XGBoost     dMAE     -235.0     -343.0    -111.0           True
+8        Persistence      Random Forest     dMSE -1029850.0 -1892254.0 -353342.0           True
+9        Persistence      Random Forest     dMAE     -219.0     -319.0    -110.0           True
+leakage checks: 10 / 10 pass

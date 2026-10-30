@@ -1,0 +1,4 @@
+Plant 1 (DC rescaled by 1/10)
+stamps with DC > 0 and irradiance > 0.05: 1513
+inverter efficiency AC/DC: mean 0.9783, sd 0.0028
+stamps within 3% of the AC maximum: 5

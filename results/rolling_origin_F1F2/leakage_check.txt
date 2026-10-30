@@ -1,0 +1,28 @@
+=== Plant 1 ===
+[PASS] F1: train ends before test train max 2020-05-25 18:15:00, test min 2020-05-26 06:15:00
+[PASS] F1: validation slice is inside training and before test fit 2020-05-16 06:15:00..2020-05-23 15:15:00, val 2020-05-23 15:30:00..2020-05-25 18:15:00
+[PASS] F1: no test stamp in training 
+[PASS] F1: test features read only stamps <= tau - 15 min (P lags, G, dG, roll_1h verified) 
+[PASS] F1: no feature column read at target time tau FULL = ['IRRADIATION', 'AMBIENT_TEMPERATURE', 'MODULE_TEMPERATURE', 'time_sin', 'time_cos', 'ac_now', 'lag_15m', 'lag_30m', 'lag_1h', 'lag_24h', 'roll_1h', 'd_ac_15m', 'd_irr_15m']
+[PASS] F2: train ends before test train max 2020-05-31 18:15:00, test min 2020-06-01 06:15:00
+[PASS] F2: validation slice is inside training and before test fit 2020-05-16 06:15:00..2020-05-28 09:45:00, val 2020-05-28 10:00:00..2020-05-31 18:15:00
+[PASS] F2: no test stamp in training 
+[PASS] F2: test features read only stamps <= tau - 15 min (P lags, G, dG, roll_1h verified) 
+[PASS] F2: no feature column read at target time tau FULL = ['IRRADIATION', 'AMBIENT_TEMPERATURE', 'MODULE_TEMPERATURE', 'time_sin', 'time_cos', 'ac_now', 'lag_15m', 'lag_30m', 'lag_1h', 'lag_24h', 'roll_1h', 'd_ac_15m', 'd_irr_15m']
+Training-only fits: CLIPER climatology and alpha, LR, XGB, RF are fitted on the fold's training rows; tuning scores only the validation slice (last 25% of training).
+Daylight filter uses solar elevation at tau, a deterministic function of the clock.
+
+=== Plant 2 ===
+[PASS] F1: train ends before test train max 2020-05-25 18:15:00, test min 2020-05-26 06:15:00
+[PASS] F1: validation slice is inside training and before test fit 2020-05-16 06:15:00..2020-05-23 12:30:00, val 2020-05-23 12:45:00..2020-05-25 18:15:00
+[PASS] F1: no test stamp in training 
+[PASS] F1: test features read only stamps <= tau - 15 min (P lags, G, dG, roll_1h verified) 
+[PASS] F1: no feature column read at target time tau FULL = ['IRRADIATION', 'AMBIENT_TEMPERATURE', 'MODULE_TEMPERATURE', 'time_sin', 'time_cos', 'ac_now', 'lag_15m', 'lag_30m', 'lag_1h', 'lag_24h', 'roll_1h', 'd_ac_15m', 'd_irr_15m']
+[PASS] F2: train ends before test train max 2020-05-31 18:15:00, test min 2020-06-01 06:15:00
+[PASS] F2: validation slice is inside training and before test fit 2020-05-16 06:15:00..2020-05-27 17:15:00, val 2020-05-27 17:30:00..2020-05-31 18:15:00
+[PASS] F2: no test stamp in training 
+[PASS] F2: test features read only stamps <= tau - 15 min (P lags, G, dG, roll_1h verified) 
+[PASS] F2: no feature column read at target time tau FULL = ['IRRADIATION', 'AMBIENT_TEMPERATURE', 'MODULE_TEMPERATURE', 'time_sin', 'time_cos', 'ac_now', 'lag_15m', 'lag_30m', 'lag_1h', 'lag_24h', 'roll_1h', 'd_ac_15m', 'd_irr_15m']
+Training-only fits: CLIPER climatology and alpha, LR, XGB, RF are fitted on the fold's training rows; tuning scores only the validation slice (last 25% of training).
+Daylight filter uses solar elevation at tau, a deterministic function of the clock.
+

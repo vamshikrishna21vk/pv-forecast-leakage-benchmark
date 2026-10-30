@@ -1,0 +1,203 @@
+Synchronized stamps (inner join): 3259
+Regular 15-min grid: 3264 stamps, 591 missing
+Stamps with fewer than 22 inverters: 904
+Observed peak aggregate AC (all inverters reporting): 25979.8 kW
+Outage stamps (an inverter at AC=0 with G>0.3): 586; excluded: True
+Same-time corr(AC, G) on daylight stamps (elev > 5): 0.9302 (n = 1078)
+Constructible causal rows (all hours): 2299
+  daylight rows, elev_tau>5 : 757
+  daylight rows, target>0   : 824
+  daylight rows, G_t>0      : 949
+Main daylight set: 757 rows, train 605, test 152; test starts 2020-06-12 13:00:00
+Test rows with target == 0: 0
+RF params: {'n_estimators': 300, 'max_depth': None, 'min_samples_leaf': 10, 'max_features': 'sqrt'}
+XGB params: {'n_estimators': 150, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.8, 'colsample_bytree': 0.8}
+CLIPER alpha (train): 0.6435
+Leaked RF params: {'all hours': {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 1, 'max_features': 1.0}, 'all hours (matched)': {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 1, 'max_features': 1.0}, 'daylight': {'n_estimators': 300, 'max_depth': None, 'min_samples_leaf': 1, 'max_features': 1.0}, 'daylight (matched)': {'n_estimators': 300, 'max_depth': 14, 'min_samples_leaf': 1, 'max_features': 1.0}}
+
+TABLE I (causal, daylight elev>5, test N=152)
+                             N       RMSE   nRMSE%        MAE       MBE      R2        P95  sigma_ddof1  skill_vs_pers  skill_vs_cliper  DM_p_SE_vs_pers  DM_p_AE_vs_pers
+Persistence              152.0  2750.8010  10.5882  1892.0034  -39.7967  0.6135  5687.4504    2759.6057         0.0000          -0.1538              NaN              NaN
+Smart persistence        152.0  2632.2626  10.1320  1663.4105  -70.4839  0.6460  5738.4221    2640.0173         0.0431          -0.1040           0.0005           0.0000
+CLIPER                   152.0  2384.2040   9.1772  1690.6004   99.9418  0.7096  4274.5725    2389.9831         0.1333           0.0000           0.0022           0.0211
+Linear Regression        152.0  2491.1843   9.5889  1647.8321  -65.4729  0.6830  5199.4473    2498.5563         0.0944          -0.0449           0.0304           0.0099
+XGBoost                  152.0  2337.7325   8.9983  1543.2982   25.4612  0.7208  4664.1076    2345.3214         0.1502           0.0195           0.0015           0.0001
+Random Forest (full)     152.0  2265.9184   8.7219  1474.3263  199.4457  0.7377  4357.1596    2264.5854         0.1763           0.0496           0.0005           0.0000
+Random Forest (reduced)  152.0  2281.4254   8.7815  1508.1582  134.3651  0.7341  4462.8528    2284.9940         0.1706           0.0431           0.0005           0.0000
+
+DM TESTS (NW5 + HLN)
+                 model_1                  model_2 loss  DM_NW5_HLN  p_NW5_HLN  DM_rect_HLN  p_rect_HLN  LjungBox_Q10  LjungBox_p  acf1_d  p_Holm_family8  p_Holm_cliper_family8
+0            Persistence        Linear Regression   SE      2.1854     0.0304       2.0616      0.0410        5.1366      0.8819 -0.0990          0.0304                    NaN
+1            Persistence        Linear Regression   AE      2.6117     0.0099       2.5141      0.0130        6.3678      0.7835 -0.0063          0.0198                    NaN
+2            Persistence                  XGBoost   SE      3.2273     0.0015       3.3060      0.0012        5.2403      0.8746  0.0333          0.0046                    NaN
+3            Persistence                  XGBoost   AE      4.0411     0.0001       3.8983      0.0001        6.8827      0.7365  0.0362          0.0005                    NaN
+4            Persistence     Random Forest (full)   SE      3.5474     0.0005       3.2492      0.0014        5.5521      0.8514 -0.1463          0.0026                    NaN
+5            Persistence     Random Forest (full)   AE      5.0795     0.0000       4.9344      0.0000        4.8660      0.8999 -0.0757          0.0000                    NaN
+6            Persistence  Random Forest (reduced)   SE      3.5361     0.0005       3.2810      0.0013        4.7596      0.9066 -0.1223          0.0026                    NaN
+7            Persistence  Random Forest (reduced)   AE      4.5690     0.0000       4.3860      0.0000        8.3024      0.5993 -0.0767          0.0001                    NaN
+8            Persistence                   CLIPER   SE      3.1216     0.0022       3.1972      0.0017        5.9998      0.8153  0.0425             NaN                    NaN
+9            Persistence                   CLIPER   AE      2.3303     0.0211       2.4551      0.0152       10.7959      0.3736  0.0548             NaN                    NaN
+10           Persistence        Smart persistence   SE      3.5831     0.0005       2.5519      0.0117       59.0846      0.0000 -0.3236             NaN                    NaN
+11           Persistence        Smart persistence   AE      4.6938     0.0000       4.5247      0.0000       11.2870      0.3356 -0.0607             NaN                    NaN
+12     Linear Regression     Random Forest (full)   SE      1.9016     0.0591       2.2447      0.0262        9.0430      0.5280  0.0755             NaN                    NaN
+13     Linear Regression     Random Forest (full)   AE      2.3063     0.0225       2.4673      0.0147        6.7300      0.7507  0.0013             NaN                    NaN
+14  Random Forest (full)  Random Forest (reduced)   SE     -0.5349     0.5935      -0.4093      0.6829       16.0000      0.0996 -0.2342             NaN                    NaN
+15  Random Forest (full)  Random Forest (reduced)   AE     -1.1030     0.2718      -1.0485      0.2961       11.0669      0.3523 -0.1024             NaN                    NaN
+16                CLIPER        Linear Regression   SE     -0.8376     0.4036      -1.0744      0.2843       18.8852      0.0417  0.1540             NaN                 1.0000
+17                CLIPER        Linear Regression   AE      0.4290     0.6685       0.5103      0.6106       17.6266      0.0616  0.0322             NaN                 1.0000
+18                CLIPER                  XGBoost   SE      0.6970     0.4869       0.7158      0.4752        5.6650      0.8426 -0.0260             NaN                 1.0000
+19                CLIPER                  XGBoost   AE      2.1769     0.0310       2.4201      0.0167       12.4603      0.2554  0.1141             NaN                 0.1862
+20                CLIPER     Random Forest (full)   SE      1.6960     0.0920       1.2645      0.2080        8.9277      0.5390 -0.2068             NaN                 0.4598
+21                CLIPER     Random Forest (full)   AE      3.4177     0.0008       3.5527      0.0005       13.7666      0.1839  0.1003             NaN                 0.0065
+22                CLIPER  Random Forest (reduced)   SE      1.5121     0.1326       1.2074      0.2292        5.7933      0.8323 -0.1630             NaN                 0.5304
+23                CLIPER  Random Forest (reduced)   AE      3.1955     0.0017       3.2140      0.0016       10.8696      0.3678  0.0608             NaN                 0.0119
+
+BOOTSTRAP CIs
+                    from                       to         quantity  point (to - from)       ci_lo       ci_hi  spans_zero
+0            Persistence        Linear Regression             dMSE        -1360906.71 -2527530.95  -140621.65       False
+1            Persistence        Linear Regression             dMAE            -244.17     -437.55      -57.33       False
+2            Persistence        Linear Regression             dP95            -488.00    -1340.78      411.68        True
+3            Persistence        Linear Regression  dThroughput_kWh             -61.04     -109.39      -14.33       False
+4            Persistence     Random Forest (full)             dMSE        -2432519.84 -3705409.71 -1168656.04       False
+5            Persistence     Random Forest (full)             dMAE            -417.68     -575.13     -261.45       False
+6            Persistence     Random Forest (full)             dP95           -1330.29    -1962.89     -393.02       False
+7            Persistence     Random Forest (full)  dThroughput_kWh            -104.42     -143.78      -65.36       False
+8            Persistence                  XGBoost             dMSE        -2101913.04 -3402424.94  -971984.65       False
+9            Persistence                  XGBoost             dMAE            -348.71     -516.76     -189.20       False
+10           Persistence                  XGBoost             dP95           -1023.34    -1707.29     -182.41       False
+11           Persistence                  XGBoost  dThroughput_kWh             -87.18     -129.19      -47.30       False
+12     Linear Regression     Random Forest (full)             dMSE        -1071613.13 -2305797.16  -115186.90       False
+13     Linear Regression     Random Forest (full)             dMAE            -173.51     -330.79      -31.07       False
+14     Linear Regression     Random Forest (full)             dP95            -842.29    -1370.62      175.97        True
+15     Linear Regression     Random Forest (full)  dThroughput_kWh             -43.38      -82.70       -7.77       False
+16  Random Forest (full)  Random Forest (reduced)             dMSE           70515.43  -161319.01   353022.91        True
+17  Random Forest (full)  Random Forest (reduced)             dMAE              33.83      -26.56       93.95        True
+18  Random Forest (full)  Random Forest (reduced)             dP95             105.69     -398.40      494.92        True
+19  Random Forest (full)  Random Forest (reduced)  dThroughput_kWh               8.46       -6.64       23.49        True
+20                CLIPER        Linear Regression             dMSE          521570.77  -543376.71  1911170.39        True
+21                CLIPER        Linear Regression             dMAE             -42.77     -234.95      167.08        True
+22                CLIPER        Linear Regression             dP95             924.87     -408.37     1512.63        True
+23                CLIPER        Linear Regression  dThroughput_kWh             -10.69      -58.74       41.77        True
+
+2x2 LEAKAGE
+       regime                                                   model  n_train    N       RMSE        MAE      R2       MBE        P95
+0   all hours                 Matched leaked RF (target-time sensors)     1874  403   969.3198   217.6133  0.9418   -4.8347   780.1886
+1   all hours                        Leaked RF nowcast (as described)     1874  403   970.6940   225.5109  0.9416  -12.3827   927.7578
+2   all hours                 Leaked RF nowcast (forecaster settings)     1874  403  1077.9395   333.2129  0.9280   -6.3006  1645.6964
+3   all hours  Leaked RF nowcast (round-2, rolling mean incl. target)     1874  403   979.8499   307.1096  0.9405    1.5107  1465.7877
+4   all hours                                      Causal RF forecast     1874  403  1368.5443   543.8924  0.8840   77.8789  3259.4114
+5   all hours                                      Causal persistence     1874  403  1681.9327   714.3977  0.8247    5.9629  4160.7416
+6    daylight                 Matched leaked RF (target-time sensors)      588  148  1607.0598   598.6261  0.8622  -18.6661  1782.7398
+7    daylight                        Leaked RF nowcast (as described)      588  148  1598.3488   605.8777  0.8637  -22.4160  1761.9708
+8    daylight                 Leaked RF nowcast (forecaster settings)      588  148  1772.5536   883.8764  0.8324  -11.7120  2768.6546
+9    daylight  Leaked RF nowcast (round-2, rolling mean incl. target)      588  148  1627.5266   815.1084  0.8587   17.5097  2395.9190
+10   daylight                                      Causal RF forecast      588  148  2264.6849  1466.3598  0.7263  235.3092  4329.7625
+11   daylight                                      Causal persistence      588  148  2769.2571  1894.7988  0.5908  -23.7189  5699.0840
+                                                                   quantity   value
+0                                           MATCHED R2 leaked all-hours (A)  0.9418
+1                                            MATCHED R2 leaked daylight (B)  0.8622
+2                                                        MATCHED R2 gap A-D  0.2154
+3                       MATCHED leakage component (Shapley avg of B-D, A-C)  0.0968
+4                MATCHED zero-inflation component (Shapley avg of A-B, C-D)  0.1186
+5                                MATCHED RMSE ratio causal/leaked, daylight  1.4092
+6                                 MATCHED MAE ratio causal/leaked, daylight  2.4495
+7                               MATCHED RMSE ratio causal/leaked, all hours  1.4119
+8                                                   R2 leaked all-hours (A)  0.9416
+9                                                    R2 leaked daylight (B)  0.8637
+10                                                  R2 causal all-hours (C)  0.8840
+11                                                   R2 causal daylight (D)  0.7263
+12                                                               R2 gap A-D  0.2153
+13                              leakage component (Shapley avg of B-D, A-C)  0.0975
+14                       zero-inflation component (Shapley avg of A-B, C-D)  0.1178
+15                          RMSE ratio causal/leaked, daylight (common set)  1.4169
+16                           MAE ratio causal/leaked, daylight (common set)  2.4202
+17           RMSE ratio causal-daylight / leaked-all-hours (old definition)  2.3331
+18  RMSE ratio causal/leaked (leaked RF with forecaster settings), daylight  1.2776
+19   MAE ratio causal/leaked (leaked RF with forecaster settings), daylight  1.6590
+20                       RMSE ratio causal/leaked round-2 version, daylight  1.3915
+
+SENSITIVITY
+                          filter                 model  n_rows  n_train    N       RMSE        MAE      R2       MBE  DM_p_SE_vs_pers  DM_p_AE_vs_pers  DM_p_SE_LR_vs_RF  DM_p_AE_LR_vs_RF
+0                     elev_tau>5           Persistence     757      605  152  2750.8010  1892.0034  0.6135  -39.7967              NaN              NaN            0.0591            0.0225
+1                     elev_tau>5     Linear Regression     757      605  152  2491.1843  1647.8321  0.6830  -65.4729           0.0304           0.0099            0.0591            0.0225
+2                     elev_tau>5  Random Forest (full)     757      605  152  2265.9184  1474.3263  0.7377  199.4457           0.0005           0.0000            0.0591            0.0225
+3                     elev_tau>5               XGBoost     757      605  152  2337.7325  1543.2982  0.7208   25.4612           0.0015           0.0001            0.0591            0.0225
+4                       target>0           Persistence     824      659  165  2645.6553  1782.0539  0.6644   -6.9897              NaN              NaN            0.0557            0.0143
+5                       target>0     Linear Regression     824      659  165  2393.8042  1535.4352  0.7252  -36.9894           0.0298           0.0046            0.0557            0.0143
+6                       target>0  Random Forest (full)     824      659  165  2179.0006  1366.8952  0.7723  194.6376           0.0007           0.0000            0.0557            0.0143
+7                       target>0               XGBoost     824      659  165  2249.8283  1430.2230  0.7573   51.7376           0.0013           0.0000            0.0557            0.0143
+8                          G_t>0           Persistence     949      759  190  2532.9291  1649.1230  0.7237  -28.9839              NaN              NaN            0.0922            0.0236
+9                          G_t>0     Linear Regression     949      759  190  2293.1827  1435.6365  0.7735  -55.9554           0.0288           0.0046            0.0922            0.0236
+10                         G_t>0  Random Forest (full)     949      759  190  2104.0085  1289.6489  0.8093   43.8197           0.0006           0.0000            0.0922            0.0236
+11                         G_t>0               XGBoost     949      759  190  2198.4206  1380.7312  0.7918 -207.2769           0.0079           0.0003            0.0922            0.0236
+12           elev_tau>5 @ lat 12           Persistence     696      556  140  2650.1668  1861.8349  0.6092   17.2518              NaN              NaN            0.1493            0.1299
+13           elev_tau>5 @ lat 12     Linear Regression     696      556  140  2357.6057  1588.7052  0.6907   51.4658           0.0260           0.0085            0.1493            0.1299
+14           elev_tau>5 @ lat 12  Random Forest (full)     696      556  140  2178.3890  1468.7545  0.7359  240.6987           0.0007           0.0000            0.1493            0.1299
+15           elev_tau>5 @ lat 12               XGBoost     696      556  140  2198.2375  1499.3711  0.7311  136.9338           0.0035           0.0005            0.1493            0.1299
+16           elev_tau>5 @ lat 28           Persistence     823      658  165  2652.5389  1791.9280  0.6608    2.8844              NaN              NaN            0.0572            0.0167
+17           elev_tau>5 @ lat 28     Linear Regression     823      658  165  2404.1007  1548.5795  0.7214  -26.7151           0.0295           0.0051            0.0572            0.0167
+18           elev_tau>5 @ lat 28  Random Forest (full)     823      658  165  2183.4989  1385.4672  0.7702  201.2133           0.0007           0.0000            0.0572            0.0167
+19           elev_tau>5 @ lat 28               XGBoost     823      658  165  2246.9197  1434.4072  0.7566   70.7640           0.0014           0.0000            0.0572            0.0167
+20  elev_tau>5, all 22 inverters           Persistence     592      473  119  2507.6100  1709.0381  0.6825    1.9290              NaN              NaN            0.3975            0.3120
+21  elev_tau>5, all 22 inverters     Linear Regression     592      473  119  2091.9812  1411.8988  0.7790   93.6264           0.0110           0.0124            0.3975            0.3120
+22  elev_tau>5, all 22 inverters  Random Forest (full)     592      473  119  2032.4191  1339.3310  0.7914  234.7803           0.0043           0.0001            0.3975            0.3120
+23  elev_tau>5, all 22 inverters               XGBoost     592      473  119  2107.8124  1382.2218  0.7757  121.8826           0.0297           0.0071            0.3975            0.3120
+
+MBE
+                  model  MBE_train_in_sample  MBE_validation_last25pct_of_train  MBE_test
+0           Persistence               -194.7                             -227.2     -39.8
+1     Linear Regression                  4.6                             -119.8     -65.5
+2               XGBoost                 -8.8                             -137.0      25.5
+3  Random Forest (full)                  4.0                              -99.4     199.4
+                            block  mean_target_kW  mean_G_t  median_clear_sky_index_G  mean_abs_ramp_kW
+0                           train        6679.025     0.228                     0.451          1558.450
+1  validation (last 25% of train)        6713.862     0.208                     0.374          1720.518
+2                            test        6501.551     0.216                     0.409          1892.003
+
+PERMUTATION IMPORTANCE (50)
+                feature  mean_dMSE   sd_dMSE  se_dMSE  z_mean_over_sd  share_of_positive_%
+5                ac_now  4244954.3  443094.6  62663.0             9.6                 40.5
+0           IRRADIATION  2846148.2  355451.7  50268.5             8.0                 27.2
+4              time_cos   858119.0  203398.2  28764.9             4.2                  8.2
+6               lag_15m   816715.9  156475.5  22129.0             5.2                  7.8
+9               lag_24h   422018.2  113812.9  16095.6             3.7                  4.0
+3              time_sin   408019.7  129791.3  18355.3             3.1                  3.9
+10              roll_1h   289900.3  106985.2  15130.0             2.7                  2.8
+11             d_ac_15m   284774.4   87760.4  12411.2             3.2                  2.7
+12            d_irr_15m   199150.9   73532.6  10399.1             2.7                  1.9
+7               lag_30m    70517.0   35562.8   5029.3             2.0                  0.7
+2    MODULE_TEMPERATURE    21017.3   16810.2   2377.3             1.3                  0.2
+1   AMBIENT_TEMPERATURE    15167.4   15560.4   2200.6             1.0                  0.1
+8                lag_1h      379.4   21627.9   3058.7             0.0                  0.0
+                                           group  mean_dMSE   sd_dMSE
+0  lag stack (P_t-1,P_t-2,P_t-4,P_t-96,r_t,dP_t)  3711447.1  625133.8
+1                                            P_t  4189753.3  490348.2
+2                                     G_t + dG_t  3276384.5  447130.9
+
+OPERATIONAL
+                         throughput_kWh_per_interval  R95_kW  thr_saving_vs_pers  thr_saving_vs_LR  R95_saving_vs_pers  R95_saving_vs_LR
+Persistence                                    473.0  5687.5                 0.0             -61.0                 0.0            -488.0
+Smart persistence                              415.9  5738.4                57.1              -3.9               -51.0            -539.0
+CLIPER                                         422.7  4274.6                50.4             -10.7              1412.9             924.9
+Linear Regression                              412.0  5199.4                61.0               0.0               488.0               0.0
+XGBoost                                        385.8  4664.1                87.2              26.1              1023.3             535.3
+Random Forest (full)                           368.6  4357.2               104.4              43.4              1330.3             842.3
+Random Forest (reduced)                        377.0  4462.9                96.0              34.9              1224.6             736.6
+
+PER-DAY TEST RMSE
+               n  RMSE Persistence  RMSE Linear Regression  RMSE Random Forest (full)
+date                                                                                 
+2020-06-12  16.0            3556.0                  3210.0                     2923.0
+2020-06-13  26.0            3159.0                  3291.0                     2675.0
+2020-06-14  21.0            2458.0                  2383.0                     2034.0
+2020-06-15  18.0            1830.0                  1382.0                     1413.0
+2020-06-16  24.0            2225.0                  1712.0                     1643.0
+2020-06-17  47.0            2852.0                  2410.0                     2397.0
+   lag_intervals    corr
+0             -3  0.4322
+1             -2  0.6026
+2             -1  0.7234
+3              0  0.8078
+4              1  1.0000
+5              2  0.7979
+6              3  0.6957

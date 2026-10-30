@@ -1,0 +1,7 @@
+regime,model,n_train,N,RMSE,MAE,R2,params,RMSE_ratio_causal_over_this,MAE_ratio_causal_over_this
+all hours,"Causal RF forecast (13 features, P_{t+1} from I_t)",2301,608,1979.7005454556195,962.8471327967743,0.9383244034451548,"{'n_estimators': 300, 'max_depth': 14, 'min_samples_leaf': 10, 'max_features': 0.5}",1.0,1.0
+all hours,"Weather-only leaked RF (G, Tm, Ta at target)",2301,608,507.15341065422825,250.17898207848387,0.995952442245538,"{'n_estimators': 300, 'max_depth': 6, 'min_samples_leaf': 5, 'max_features': 1.0}",3.903553646423879,3.848633185719489
+all hours,"Weather-only leaked RF (G, Tm, Ta, s, c at target)",2301,608,483.3345696036208,233.7537759951668,0.9963237073995085,"{'n_estimators': 300, 'max_depth': 6, 'min_samples_leaf': 5, 'max_features': 1.0}",4.0959216864607,4.119065579572424
+daylight,"Causal RF forecast (13 features, P_{t+1} from I_t)",1214,304,2790.7871910046747,1911.8598447692086,0.8561205129694236,"{'n_estimators': 300, 'max_depth': 14, 'min_samples_leaf': 10, 'max_features': 0.5}",1.0,1.0
+daylight,"Weather-only leaked RF (G, Tm, Ta at target)",1214,304,718.0036780741484,500.4303475779168,0.9904764519633231,"{'n_estimators': 300, 'max_depth': 6, 'min_samples_leaf': 5, 'max_features': 1.0}",3.8868703270298144,3.8204314626852898
+daylight,"Weather-only leaked RF (G, Tm, Ta, s, c at target)",1214,304,676.046262041289,456.1990474411692,0.9915569712046204,"{'n_estimators': 300, 'max_depth': 6, 'min_samples_leaf': 5, 'max_features': 1.0}",4.128100912174306,4.190845762376914

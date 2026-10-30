@@ -1,0 +1,78 @@
+P1 Persistence
+             model_2 loss  p_NW5_HLN   holm6
+   Linear Regression   SE    0.00019 0.00097
+   Linear Regression   AE    0.00026 0.00105
+             XGBoost   SE    0.00108 0.00108
+             XGBoost   AE    0.00027 0.00105
+Random Forest (full)   SE    0.00039 0.00105
+Random Forest (full)   AE    0.00000 0.00001
+P1 CLIPER
+             model_2 loss  p_NW5_HLN   holm6
+   Linear Regression   SE    0.11823 0.47293
+   Linear Regression   AE    0.19082 0.47293
+             XGBoost   SE    0.47359 0.47359
+             XGBoost   AE    0.14693 0.47293
+Random Forest (full)   SE    0.05436 0.27182
+Random Forest (full)   AE    0.00445 0.02669
+P1 RF-6 unadjusted
+    model_1 loss  p_NW5_HLN
+Persistence   SE    0.00109
+Persistence   AE    0.00000
+     CLIPER   SE    0.26603
+     CLIPER   AE    0.02855
+P1 gap 0.1409 leak 0.0963 (68%) zero 0.0446 (32%) leak|allhours 0.0571 leak|daylight 0.1356 interaction 0.0785
+P2 Persistence
+             model_2 loss  p_NW5_HLN  holm6
+   Linear Regression   SE     0.0000 0.0000
+   Linear Regression   AE     0.0000 0.0000
+             XGBoost   SE     0.0001 0.0001
+             XGBoost   AE     0.0000 0.0000
+Random Forest (full)   SE     0.0000 0.0000
+Random Forest (full)   AE     0.0000 0.0000
+P2 CLIPER
+             model_2 loss  p_NW5_HLN   holm6
+   Linear Regression   SE    0.08345 0.41727
+   Linear Regression   AE    0.25483 0.58002
+             XGBoost   SE    0.88690 0.88690
+             XGBoost   AE    0.11591 0.46365
+Random Forest (full)   SE    0.19334 0.58002
+Random Forest (full)   AE    0.00179 0.01077
+P2 RF-6 unadjusted
+    model_1 loss  p_NW5_HLN
+Persistence   SE    0.00000
+Persistence   AE    0.00000
+     CLIPER   SE    0.04244
+     CLIPER   AE    0.00113
+P2 gap 0.2637 leak 0.1163 (44%) zero 0.1475 (56%) leak|allhours 0.0651 leak|daylight 0.1674 interaction 0.1023
+P1 Persistence
+               model loss  p_NW5_H6  p_andrews_H6  p_NWday_H6
+   Linear Regression   SE    0.0010        0.0024      0.0000
+   Linear Regression   AE    0.0010        0.0026      0.0007
+             XGBoost   SE    0.0011        0.0026      0.0000
+             XGBoost   AE    0.0010        0.0026      0.0000
+Random Forest (full)   SE    0.0010        0.0026      0.0000
+Random Forest (full)   AE    0.0000        0.0000      0.0000
+P1 CLIPER
+               model loss  p_NW5_H6  p_andrews_H6  p_NWday_H6
+   Linear Regression   SE    0.4729        0.4850      0.4505
+   Linear Regression   AE    0.4729        0.4850      0.4609
+             XGBoost   SE    0.4736        0.4850      0.4916
+             XGBoost   AE    0.4729        0.4850      0.4609
+Random Forest (full)   SE    0.2718        0.3662      0.3092
+Random Forest (full)   AE    0.0267        0.0141      0.0314
+P2 Persistence
+               model loss  p_NW5_H6  p_andrews_H6  p_NWday_H6
+   Linear Regression   SE    0.0000        0.0000         0.0
+   Linear Regression   AE    0.0000        0.0000         0.0
+             XGBoost   SE    0.0001        0.0002         0.0
+             XGBoost   AE    0.0000        0.0000         0.0
+Random Forest (full)   SE    0.0000        0.0000         0.0
+Random Forest (full)   AE    0.0000        0.0000         0.0
+P2 CLIPER
+               model loss  p_NW5_H6  p_andrews_H6  p_NWday_H6
+   Linear Regression   SE    0.4173        0.4859      0.2224
+   Linear Regression   AE    0.5800        0.5751      0.2224
+             XGBoost   SE    0.8869        0.8835      0.8820
+             XGBoost   AE    0.4636        0.4859      0.3038
+Random Forest (full)   SE    0.5800        0.5751      0.3379
+Random Forest (full)   AE    0.0108        0.0065      0.0001

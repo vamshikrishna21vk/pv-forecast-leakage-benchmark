@@ -1,0 +1,13 @@
+plant,regime,model,n_train,N,RMSE,MAE,R2,RMSE_ratio_causal_over_this,MAE_ratio_causal_over_this
+1,all hours,"Causal RF forecast (13 features, P_{t+1} from I_t)",2301,608,1979.7005,962.8471,0.9383,1.0,1.0
+1,all hours,"Weather-only leaked RF (G, Tm, Ta at target)",2301,608,507.1534,250.179,0.996,3.9036,3.8486
+1,all hours,"Weather-only leaked RF (G, Tm, Ta, s, c at target)",2301,608,483.3346,233.7538,0.9963,4.0959,4.1191
+1,daylight,"Causal RF forecast (13 features, P_{t+1} from I_t)",1214,304,2790.7872,1911.8598,0.8561,1.0,1.0
+1,daylight,"Weather-only leaked RF (G, Tm, Ta at target)",1214,304,718.0037,500.4303,0.9905,3.8869,3.8204
+1,daylight,"Weather-only leaked RF (G, Tm, Ta, s, c at target)",1214,304,676.0463,456.199,0.9916,4.1281,4.1908
+2,all hours,"Causal RF forecast (13 features, P_{t+1} from I_t)",2515,621,1982.1071,991.63,0.8712,1.0,1.0
+2,all hours,"Weather-only leaked RF (G, Tm, Ta at target)",2515,621,1760.3447,771.1906,0.8984,1.126,1.2858
+2,all hours,"Weather-only leaked RF (G, Tm, Ta, s, c at target)",2515,621,1735.0888,746.3028,0.9013,1.1424,1.3287
+2,daylight,"Causal RF forecast (13 features, P_{t+1} from I_t)",1275,319,2787.1269,1946.3125,0.6698,1.0,1.0
+2,daylight,"Weather-only leaked RF (G, Tm, Ta at target)",1275,319,2549.4322,1612.3888,0.7237,1.0932,1.2071
+2,daylight,"Weather-only leaked RF (G, Tm, Ta, s, c at target)",1275,319,2393.1074,1425.4171,0.7565,1.1646,1.3654
